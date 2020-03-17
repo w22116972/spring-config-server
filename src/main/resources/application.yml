@@ -11,5 +11,6 @@ spring:
           uri: https://github.com/w22116972/spring-config-server.git
           # what the path in Git is to look for config files
           search-paths: src/main/resources/config
+          clone-on-start: true
 server:
   port: 8888
