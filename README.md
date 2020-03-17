@@ -1,5 +1,8 @@
 # Spring Cloud Config Server backed git
 
+# Server side
+
+
 #### pom.xml
 
 ```xml
@@ -30,7 +33,57 @@ server:
   port: 8888
 ```
 
-## read config from restful
+Assume properties name is `APP-PROFILE-LABEL.properties`--
+
+
+
+---
+
+# Client side
+
+#### pom.xml
+
+```xml
+<dependency>
+   <groupId>org.springframework.cloud</groupId>
+   <artifactId>spring-cloud-starter-config</artifactId>
+</dependency>
+```
+
+## Approach 1: `@Value`
+
+假設config name=`APP-dev.properties`
+
+#### bootstrap.yml
+```yaml
+spring:
+  application:
+    name: APP
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:8888
+#        native:
+#          # filesystem-based repo for config
+#          search-locations: file:///Users/
+server:
+  port: 8080
+```
+
+#### client.java
+
+```java
+@RestController
+public class ConfigController {
+    @Value("${KEY}")
+    private String example;
+    
+    // ...
+}
+```
+
+## Approach 2: Restful
 
 create `app1-dev.properties` under `resources/config/`
 
@@ -42,24 +95,4 @@ create `app1-dev.properties` under `resources/config/`
 - `http://localhost:8888/CONFIG_FILE_NAME/PROFILE_NAME`
 - `http://localhost:8888/app1-dev/dev`
 
-
----
-
-# Client
-
-#### pom.xml
-
-```xml
-<dependency>
-   <groupId>org.springframework.cloud</groupId>
-   <artifactId>spring-cloud-starter-config</artifactId>
-</dependency>
-```
-
-#### application.properties
-
-```properties
-spring.application.name=config-client
-spring.cloud.config.uri=http://localhost:8888
-```
 
