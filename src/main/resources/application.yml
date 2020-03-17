@@ -7,7 +7,9 @@ spring:
     config:
       server:
         git:
+          # public repo doesn't need auth
           uri: https://github.com/w22116972/spring-config-server.git
+          # what the path in Git is to look for config files
           search-paths: src/main/resources/config
 server:
   port: 8888
