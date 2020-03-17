@@ -1,0 +1,21 @@
+#spring:
+#  application:
+#    name: config-server-redis
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/spring-cloud-samples/config-repo.git
+#          username: w22116972
+#          password:
+##  profiles:
+##    active: redis
+##  redis:
+##    port: 6379
+##    host: localhost
+#server:
+#  port: 8888
+#  cloud:
+#    config:
+#      server:
+#        bootstrap: true
