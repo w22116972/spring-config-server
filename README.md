@@ -4,12 +4,6 @@
 
 create `app1.properties` under `resources/config/dev`
 
+- `http://localhost:8888/GIT_BRANCH/APP_NAME-PROFILE_NAME.properties`
+- `http://localhost:8888/master/app1-dev.properties`
 
-- `http://localhost:8888/dev/app1.properties`
-- `http://localhost:8888/prod/app1.properties`
-
-/{application}/{profile}[/{label}]
-/{application}-{profile}.yml
-/{label}/{application}-{profile}.yml
-/{application}-{profile}.properties
-/{label}/{application}-{profile}.properties
