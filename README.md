@@ -2,6 +2,7 @@
 
 #### read config from restful
 
-1. create `app1-dev.properties` under `resources/config/`
-2. `http://localhost:8888/app1-dev/PROFILE_NAME`
+create `app1-dev.properties` under `resources/config/`
 
+- `http://localhost:8888/app1-dev/PROFILE_NAME`
+- `http://localhost:8888/app1-dev.properties`
